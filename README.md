@@ -68,6 +68,7 @@ Using this dataset, we will study the causal relationship between propofol blood
 
   <h4>Implementation</h4> 
 To get similar results, you can run the below code for loading the data:
+
       function [cfg_Init, Y_k]= gc_load_yk_cfg(ch_num, num_switch)
 
       str_dict = '.\load_folder\';
@@ -81,8 +82,8 @@ To get similar results, you can run the below code for loading the data:
            str_name_2 = sprintf('Anethesia_cfg_Init_chNum%d_fr13_sr256_winSec32_segNum32_TRIAL', ch_num);
    
        case 20
-   %         str_name_1 = sprintf('Anethesia_Yk_chNum%d_fr12_sr256_winSec40_segNum40_TRIAL', ch_num);
-   %         str_name_2 = sprintf('Anethesia_cfg_Init_chNum20_fr12_sr256_winSec40_segNum40_TRIAL', ch_num);
+           %         str_name_1 = sprintf('Anethesia_Yk_chNum%d_fr12_sr256_winSec40_segNum40_TRIAL', ch_num);
+           %         str_name_2 = sprintf('Anethesia_cfg_Init_chNum20_fr12_sr256_winSec40_segNum40_TRIAL', ch_num);
    
            str_name_1 = sprintf('Anethesia_switch_%d_Yk_chNum%d_fr12_sr250_winSec%d_segNum%d_TRIAL', num_switch, ch_num, ch_num, ch_num);
            str_name_2 = sprintf('Anethesia_switch_%d_cfg_Init_chNum%d_fr12_sr250_winSec%d_segNum%d_TRIAL', num_switch, ch_num, ch_num, ch_num);
@@ -93,6 +94,18 @@ To get similar results, you can run the below code for loading the data:
    
            %         str_name_1 = sprintf('Anethesia_Yk_chNum%d_fr13_sr256_winSec20_segNum20_TRIAL', ch_num);
            %         str_name_2 = sprintf('Anethesia_cfg_Init_chNum%d_fr13_sr256_winSec20_segNum20_TRIAL', ch_num);
+           end
+
+       str_load_1 = sprintf('%s%s', str_dict, str_name_1);
+       str_load_2 = sprintf('%s%s', str_dict, str_name_2);
+       
+       
+       load(str_load_1);
+       load(str_load_2);
+       % yk = load(str_load_1);
+       % Y_k = cell2mat(struct2cell(yk));
+       % b = load(str_load_2);
+       % b2 = struct2cell(b);
 
 <h3>Switching Dynamic:</h3>
 In this method, we will evaluate Switching mechanism in the brain by applying Global Coherence Algorithm. We evaluate the cluster analysis in one participant. A small number of functional circuits appear at different segments of the experiment; moreover, the same functional circuit emerges when a specific cognitive task is repeated.
