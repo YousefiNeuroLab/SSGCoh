@@ -67,7 +67,10 @@ Using this dataset, we will study the causal relationship between propofol blood
 **A)** These figures show the inferred GCoh by SS-Coh, LDCM with 2 switches, and LDCM with 3 switches. The time intervals of different switches are shown with blue, red, and greeen colors for the first, second, and third switch, respectively. The black line shows the empirical GCoh. The inferred GCOh using LDCM with 3 switches follows the empirical GCoh with a higher level of accuracy, where we can observe a clear bias in the SS-Coh. The scatter plots on the right, predicted GCoh vs empirical GCoh, also show this bias in SS-Coh, which is compensated as we embed switching process in our modeling of coherence dynamics. In each scatter figure, the correlation is shown. The best score is for LDCM with switches and it shows the better performance of this model. **B)** The scalp heatmap using the dominant eigenvector of CSM at time 45 minutes of experiments derived using empiricial, SS-Coh, LDCM with 2 switches, and LDCM with 3 switches, from left to right. The empirical one shows a strong frontal activity in (Alpha) band through the transition from consciousness to unconsciousness; the result in LDCMs with 2 and 3 switches are significantly close to the empiricial one, where the SS-Coh inferred functional modes do not resemble the empirical one.
 
   <h4>Implementation</h4> 
-To get similar results, you can run provided code. After running GMM code, you will obtain the same result that we provide in above figures
+To get similar results, you can run the below code for loading the data:
+     function [cfg_Init, Y_k]= gc_load_yk_cfg(ch_num, num_switch)
+
+      str_dict = '.\load_folder\';
 
 <h3>Switching Dynamic:</h3>
 In this method, we will evaluate Switching mechanism in the brain by applying Global Coherence Algorithm. We evaluate the cluster analysis in one participant. A small number of functional circuits appear at different segments of the experiment; moreover, the same functional circuit emerges when a specific cognitive task is repeated.
