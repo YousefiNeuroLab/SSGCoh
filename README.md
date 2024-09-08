@@ -107,6 +107,78 @@ To get similar results, you can run the below code for loading the data:
        % b = load(str_load_2);
        % b2 = struct2cell(b);
 
+Then, you can run the below code for training the model:
+
+        %% training model
+
+        sv_update = [];
+    
+        step_interval = 1:length(Y_k);
+        break_con = 0;
+        thr_q = 10^-5;
+    
+    
+        % ParamaUpdate.W_update  = 0;
+    
+        if using_simulation == 1
+            Yk = Yk_sample;
+        end
+    
+        % model training section
+        for iter=1:Iter
+    
+            disp(iter)
+            disp('-----------')
+    
+            if q_k==1
+                param_curr = PARAM_q1{iter};
+            elseif q_k==2
+                param_curr = PARAM_q2{iter};
+            elseif q_k==3
+                param_curr = PARAM_q3{iter};
+            end
+    
+    
+            %%% filter - smoother
+            Bayes = gc_filter_smoother_switch(Y_k, param_curr, mat_switch_active_ind);
+    
+            %%% update parameters
+            [updated_param, error_tot] = gc_parameter_update_switch(param_curr, ParamaUpdate, Bayes, Y_k, iter, W_sim, update_coef_W, mat_switch_active_ind);
+    
+    
+            if q_k==1
+                Bayes_Step_q1{iter} = Bayes;
+                PARAM_q1{iter+1} = updated_param;
+            elseif q_k==2
+                Bayes_Step_q2{iter} = Bayes;
+                PARAM_q2{iter+1} = updated_param;
+            elseif q_k==3
+                Bayes_Step_q3{iter} = Bayes;
+                PARAM_q3{iter+1} = updated_param;
+            end
+    
+        end
+
+Then, you can run the below code for updating the Params:
+
+       ParamaUpdate.sigma_update = 0; % 1 update, 0 don't update
+       ParamaUpdate.mu_update = 1;
+       ParamaUpdate.L_update  = 0;
+       ParamaUpdate.W_update  = 1;
+       
+       % based on switch we need to run the model K times and then connect them to
+       % each other
+       
+       if num_switch==3
+           structure_switch = [1, 2, 3, 2, 1];
+       elseif num_switch==2
+           structure_switch = [1, 2, 1];
+       elseif num_switch ==1
+           structure_switch = [1];
+       end
+       
+       Num_seg = length(structure_switch);
+       
 <h3>Switching Dynamic:</h3>
 In this method, we will evaluate Switching mechanism in the brain by applying Global Coherence Algorithm. We evaluate the cluster analysis in one participant. A small number of functional circuits appear at different segments of the experiment; moreover, the same functional circuit emerges when a specific cognitive task is repeated.
 
