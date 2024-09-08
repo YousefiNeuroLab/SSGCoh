@@ -39,7 +39,7 @@ A) Inferred unconsciousness state estimation over 2 hours of anesthesia. The lat
 A) Whitening transformation in the anestheisa shown for a pair of channels given initial settings of model parameters. (B) Whitening transformation shown for the pair of channles shown in (A) with trained model. It is clear that the model has captured dynamics present in data. (C) ML curve – or maximum of Q function – for different iterations of EM. The curve grows per iteration getting to a local maximum.
 
 <h4>Implementation</h4> 
-To get similar results, you can run provided code. After running GMM code, you will obtain the same result that we provide in above figures
+To get similar results, you can run provided code, you will obtain the same result that we provide in above figures
 
 <h3>Latent Dynamical Coherence Model:</h3>
 In our previous work, we demonstrated a latent dynamical modeling framework called <a href="https://github.com/YousefiLab/MDCA/tree/main/State%20Space%20Coherence">state-space global coherence</a>, which characterizes spectral measures to capture slow-changing dynamics in network-level coherence. In this method, we develop a more general class of the state-space coherence model, that can capture fast and switching changes in the network-level rhythmic dynamics. For this framework, we assume both continuous and discrete latent processes derive the network-level rhythmic dynamics; this modeling assumption, will help us to build a more flexible model structure that can capture sophisticated dynamics present in the neural data. Below figure shows how we combine both continuous and switching dynamics in the model.
@@ -212,7 +212,7 @@ Below figure shows elevated synchrony in the high-theta band as the mice start m
 The coherence analysis is is shown for 250 seconds of the data. The coherence analysis is done over a subsampled neuronal population with 10 percent of neurons picked based on the brain regions (~100 neurons). **A)** Elevated synchrony in high-theta band starts from 150 seconds accompanying behavior change (red bar). There is a rapid switch in neural synchrony from the delta to the high-theta band around time 150 seconds. We hypothesize that the delta band synchrony is because of breathing; whilst the high-theta will represent some cognitive function **B)** Principal eigenvector over time showing more stable pattern of multi-neuron recruitment into synchronous group after 150 seconds. **C)** Images of mouse expression at time 50 and 200 seconds; the increased high-theta synchrony might encode elements of the behavior (eye gaze direction and increased whisking).
 
 <h4>Implementation</h4>
-To get similar results, you can run provided code. After running GMM code, you will obtain the same result that we provide in above figures
+To get similar results, you can run provided code, you will obtain the same result that we provide in above figures
 
 <h3>Amygdala Data:</h3>
 In this project, we use empirical point-process coherence and global coherence analysis to study the human Amygdala dataset.
