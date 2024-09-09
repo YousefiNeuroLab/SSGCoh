@@ -28,13 +28,13 @@ In the below we provide some results of SS-Coh model when we run it on the Anest
 
 ![First](https://github.com/Pedram-Rajaei/ResourceSharingPlan/blob/main/Imgs/sscoh.jpg)
 
-**SS-GCoh analysis in Alpha band for anesthesia EEG data and its correspondence with empirical results.**
+**Figure1: SS-GCoh analysis in Alpha band for anesthesia EEG data and its correspondence with empirical results.**
 <br></br>
 A) Inferred unconsciousness state estimation over 2 hours of anesthesia. The latent state represents the unconsciousness level; the state transition is modeled by a random-walk model. B) Scalp heat-map of the dominant eigenmodes for 3 different time points during the experiment. The result using SS-GCoh and empirical measures are similar to each other. C) Empirical GCoh and inferred GCoh using SS-GCoh. Not only the inferred coherence matches the empirical one; it attains it at a finer temporal resolution. With SS-GCoh, we also derive higher-order statistics of the coherence such as confidence interval.
 
 ![second](https://github.com/Pedram-Rajaei/ResourceSharingPlan/blob/main/Imgs/goodness_fit.jpg)
 
-**Goodness-of-fit analyses and maximum likelihood (ML) curve**
+**Figure2: Goodness-of-fit analyses and maximum likelihood (ML) curve**
 <br></br>
 A) Whitening transformation in the anestheisa shown for a pair of channels given initial settings of model parameters. (B) Whitening transformation shown for the pair of channles shown in (A) with trained model. It is clear that the model has captured dynamics present in data. (C) ML curve – or maximum of Q function – for different iterations of EM. The curve grows per iteration getting to a local maximum.
 
@@ -45,6 +45,8 @@ To get similar results, you can run provided code, you will obtain the same resu
 In our previous work, we demonstrated a latent dynamical modeling framework called <a href="https://github.com/YousefiLab/MDCA/tree/main/State%20Space%20Coherence">state-space global coherence</a>, which characterizes spectral measures to capture slow-changing dynamics in network-level coherence. In this method, we develop a more general class of the state-space coherence model, that can capture fast and switching changes in the network-level rhythmic dynamics. For this framework, we assume both continuous and discrete latent processes derive the network-level rhythmic dynamics; this modeling assumption, will help us to build a more flexible model structure that can capture sophisticated dynamics present in the neural data. Below figure shows how we combine both continuous and switching dynamics in the model.
 
 ![third](https://github.com/Pedram-Rajaei/ResourceSharingPlan/blob/main/Imgs/img1.png)
+
+**Figure3**
 <br></br>
 <h4>B1)Data</h4>
 To assess SS-Coh model, we use EEG data from human patients under general anesthesia. The data set was collected in Emery Brown’s laboratory.
@@ -54,6 +56,7 @@ The complete description of the experimental protocol can be found in <a href="h
 
 ![fourth](https://github.com/Pedram-Rajaei/ResourceSharingPlan/blob/main/Imgs/img2.png)
 
+**Figure4**
 <br></br>
 Using this dataset, we will study the causal relationship between propofol blood concentration, level of consciousness, and spatio-temporal patterns of functional connectivity. Spectrograms, sliding window GCoh, and LDCM will be applied to identify network modes and their changes associated with loss of consciousness.
 <h4>B2)Results</h4>
@@ -62,7 +65,7 @@ Using this dataset, we will study the causal relationship between propofol blood
 
 ![fifth](https://github.com/Pedram-Rajaei/ResourceSharingPlan/blob/main/Imgs/img3.png)
 
-  **LDCM Application in Anesthesia Data .**
+  **Figure5: LDCM Application in Anesthesia Data .**
 <br></br>
 **A)** These figures show the inferred GCoh by SS-Coh, LDCM with 2 switches, and LDCM with 3 switches. The time intervals of different switches are shown with blue, red, and greeen colors for the first, second, and third switch, respectively. The black line shows the empirical GCoh. The inferred GCOh using LDCM with 3 switches follows the empirical GCoh with a higher level of accuracy, where we can observe a clear bias in the SS-Coh. The scatter plots on the right, predicted GCoh vs empirical GCoh, also show this bias in SS-Coh, which is compensated as we embed switching process in our modeling of coherence dynamics. In each scatter figure, the correlation is shown. The best score is for LDCM with switches and it shows the better performance of this model. **B)** The scalp heatmap using the dominant eigenvector of CSM at time 45 minutes of experiments derived using empiricial, SS-Coh, LDCM with 2 switches, and LDCM with 3 switches, from left to right. The empirical one shows a strong frontal activity in (Alpha) band through the transition from consciousness to unconsciousness; the result in LDCMs with 2 and 3 switches are significantly close to the empiricial one, where the SS-Coh inferred functional modes do not resemble the empirical one.
 
