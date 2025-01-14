@@ -1,4 +1,4 @@
- <h1>Latent Dynamic Connectivity Model (LDCM)</h1>
+ <h1>State Space Global Coherence Model (SSGCoh)</h1>
 
 <h2>Description:</h2>
   Numerous studies of brain activity across a wide range of cognitive tasks and conditions suggest that rhythmic neural activity is organized precisely and context-dependently at multiple scales. Data analysis methods that capture network-level rhythmic dynamics are crucial for advancing our understanding of both healthy and pathological brain functions. To support this, we developed the LDCM toolbox.
